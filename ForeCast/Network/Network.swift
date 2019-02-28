@@ -11,15 +11,12 @@ import Alamofire
 struct Network {
     static let shared = Network(baseURLString: Constants.getWeatherURL)
     private let baseURLString:String
-    public func getWeather() {
+    public func getWeather(completion:@escaping (DataResponse<Any>) -> ()) {
         guard let url = URL(string: "\(self.baseURLString)") else {return}
         Alamofire.request(url,
                           method: .get)
             .responseJSON { response in
-                guard response.result.isSuccess else {
-                    return
-                }
-                print(response.value)
+                completion(response)
         }
     }
 }
