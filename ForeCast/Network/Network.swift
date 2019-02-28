@@ -19,7 +19,7 @@ struct Network {
                 guard response.result.isSuccess else {
                     return
                 }
-                print(response)
+                print(response.value)
         }
     }
 }

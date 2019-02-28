@@ -15,6 +15,7 @@
 		19F8FD0A22272D8800B9A1F9 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD0922272D8800B9A1F9 /* Weather.swift */; };
 		19F8FD0D2227BB2700B9A1F9 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD0C2227BB2700B9A1F9 /* Network.swift */; };
 		19F8FD0F2227BD0700B9A1F9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD0E2227BD0700B9A1F9 /* Constant.swift */; };
+		19F8FD122228552E00B9A1F9 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD112228552E00B9A1F9 /* City.swift */; };
 		7CD3C91B356B9D225D8434E5 /* Pods_ForeCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C1A3EC5E1F8F2B023B1528 /* Pods_ForeCast.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		19F8FD0922272D8800B9A1F9 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		19F8FD0C2227BB2700B9A1F9 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		19F8FD0E2227BD0700B9A1F9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		19F8FD112228552E00B9A1F9 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		61A6ADC6E435A95BA6BF9DFE /* Pods-ForeCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForeCast.debug.xcconfig"; path = "Target Support Files/Pods-ForeCast/Pods-ForeCast.debug.xcconfig"; sourceTree = "<group>"; };
 		71E1A784F8B58AF4C2B1C7C6 /* Pods-ForeCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForeCast.release.xcconfig"; path = "Target Support Files/Pods-ForeCast/Pods-ForeCast.release.xcconfig"; sourceTree = "<group>"; };
 		99C1A3EC5E1F8F2B023B1528 /* Pods_ForeCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForeCast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				19F8FD0922272D8800B9A1F9 /* Weather.swift */,
+				19F8FD112228552E00B9A1F9 /* City.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			files = (
 				19F8FCF922272D4200B9A1F9 /* ViewController.swift in Sources */,
 				19F8FD0A22272D8800B9A1F9 /* Weather.swift in Sources */,
+				19F8FD122228552E00B9A1F9 /* City.swift in Sources */,
 				19F8FD0F2227BD0700B9A1F9 /* Constant.swift in Sources */,
 				19F8FD0D2227BB2700B9A1F9 /* Network.swift in Sources */,
 				19F8FCF722272D4200B9A1F9 /* AppDelegate.swift in Sources */,

@@ -18,5 +18,17 @@ struct Weather {
     let cloudiness:Double
     let rainLast1Hr:Double
     let rainLast3Hr:Double
-    
+    let snowLast1Hr:Double
+    let snowLast3Hr:Double
+    let id:Int
+    let main:String
+    let desc:String
+    let lastCalulatedDate:Double
+    let city:City
+    private let iconCode:String
+    var iconURL:URL? {
+        get {
+            return URL(string:"http://openweathermap.org/img/w/\(iconCode).png")
+        }
+    }
 }
