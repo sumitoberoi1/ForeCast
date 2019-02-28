@@ -28,23 +28,25 @@ struct Weather {
     private let iconCode:String
     var iconURL:URL? {
         get {
-            return URL(string:"\(Constants.imageIconURL)\(iconCode).\(Constants.imageFormatPNG)")
+            return URL(string:"\(Constants.imageIconURL)\(iconCode)\(Constants.imageFormatPNG)")
         }
     }
     init(json:JSON) {
         currentTemp = json["main"]["temp"].double ?? 0.0
-        maxTemp = json["main"]["temp_max"].double ?? 0.0
-        minTemp = json["main"]["temp_min"].double ?? 0.0
-        pressure = json["main"]["pressure"].double ?? 0.0
-        humidity = json["main"]["humidity"].double ?? 0.0
+        let mainJSON = json["main"]
+        maxTemp = mainJSON["temp_max"].double ?? 0.0
+        minTemp = mainJSON["temp_min"].double ?? 0.0
+        pressure = mainJSON["pressure"].double ?? 0.0
+        humidity = mainJSON["humidity"].double ?? 0.0
         windSpeed = json["wind"]["speed"].double ?? 0.0
         cloudiness = json["clouds"]["all"].double ?? 0.0
         rainLast1Hr = json["rain"]["1h"].double
         snowLast1Hr = json["snow"]["1h"].double
-        id = json["weather"][0]["id"].int ?? 0
-        main = json["weather"][0]["main"].string ?? ""
-        desc = json["weather"][0]["description"].string ?? ""
-        iconCode = json["weather"][0]["icon"].string ?? ""
+        let weatherJSON = json["weather"][0]
+        id = weatherJSON["id"].int ?? 0
+        main = weatherJSON["main"].string ?? ""
+        desc = weatherJSON["description"].string ?? ""
+        iconCode = weatherJSON["icon"].string ?? ""
         lastCalulatedDateUnix = json["dt"].double ?? 0.0
         sunSetTimeUnix = json["sys"]["sunset"].double ?? 0.0
         sunRiseTimeUnix = json["sys"]["sunrise"].double ?? 0.0
