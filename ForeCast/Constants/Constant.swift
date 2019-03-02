@@ -12,7 +12,10 @@ struct Constants {
     static let apiVersion = "2.5"
     static let apiKey = "8cdf42127b9043f5dcfe1af2bb9f93b4"
     static let weatherPath = "weather"
-    static let getWeatherURL = "\(baseURL)/\(apiVersion)/\(weatherPath)?appid=\(apiKey)&lat=35&lon=139"
+    static let foreCastPath = "forecast"
+    static let unit = "imperial"
+    static let getWeatherURL = "\(baseURL)/\(apiVersion)/\(weatherPath)?appid=\(apiKey)&lat=35&lon=139&units=\(unit)"
+    static let foreCastURL = "\(baseURL)/\(apiVersion)/\(foreCastPath)?appid=\(apiKey)&id=1851632&units=\(unit)"
     static let imageIconURL = "http://openweathermap.org/img/w/"
     static let imageFormatPNG = ".png"
     

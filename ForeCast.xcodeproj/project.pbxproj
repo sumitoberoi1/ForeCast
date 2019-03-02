@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		19F8FCF722272D4200B9A1F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FCF622272D4200B9A1F9 /* AppDelegate.swift */; };
-		19F8FCF922272D4200B9A1F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FCF822272D4200B9A1F9 /* ViewController.swift */; };
 		19F8FCFC22272D4200B9A1F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F8FCFA22272D4200B9A1F9 /* Main.storyboard */; };
 		19F8FCFE22272D4300B9A1F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F8FCFD22272D4300B9A1F9 /* Assets.xcassets */; };
 		19F8FD0122272D4300B9A1F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F8FCFF22272D4300B9A1F9 /* LaunchScreen.storyboard */; };
@@ -17,13 +16,15 @@
 		19F8FD0F2227BD0700B9A1F9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD0E2227BD0700B9A1F9 /* Constant.swift */; };
 		19F8FD122228552E00B9A1F9 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD112228552E00B9A1F9 /* City.swift */; };
 		19F8FD142228690000B9A1F9 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD132228690000B9A1F9 /* CustomError.swift */; };
+		19F8FD1622288B5700B9A1F9 /* ForeCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD1522288B5700B9A1F9 /* ForeCast.swift */; };
+		19F8FD182229BED900B9A1F9 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD172229BED900B9A1F9 /* GradientView.swift */; };
+		19F8FD1B222A461700B9A1F9 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD1A222A461700B9A1F9 /* WeatherViewController.swift */; };
 		7CD3C91B356B9D225D8434E5 /* Pods_ForeCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C1A3EC5E1F8F2B023B1528 /* Pods_ForeCast.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		19F8FCF322272D4200B9A1F9 /* ForeCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForeCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F8FCF622272D4200B9A1F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		19F8FCF822272D4200B9A1F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		19F8FCFB22272D4200B9A1F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19F8FCFD22272D4300B9A1F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19F8FD0022272D4300B9A1F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,6 +34,9 @@
 		19F8FD0E2227BD0700B9A1F9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		19F8FD112228552E00B9A1F9 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		19F8FD132228690000B9A1F9 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		19F8FD1522288B5700B9A1F9 /* ForeCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCast.swift; sourceTree = "<group>"; };
+		19F8FD172229BED900B9A1F9 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		19F8FD1A222A461700B9A1F9 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		61A6ADC6E435A95BA6BF9DFE /* Pods-ForeCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForeCast.debug.xcconfig"; path = "Target Support Files/Pods-ForeCast/Pods-ForeCast.debug.xcconfig"; sourceTree = "<group>"; };
 		71E1A784F8B58AF4C2B1C7C6 /* Pods-ForeCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForeCast.release.xcconfig"; path = "Target Support Files/Pods-ForeCast/Pods-ForeCast.release.xcconfig"; sourceTree = "<group>"; };
 		99C1A3EC5E1F8F2B023B1528 /* Pods_ForeCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForeCast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,13 +78,14 @@
 				19F8FD0B2227BB1600B9A1F9 /* Network */,
 				19F8FD0822272D5200B9A1F9 /* Model */,
 				19F8FCF622272D4200B9A1F9 /* AppDelegate.swift */,
+				19F8FD1A222A461700B9A1F9 /* WeatherViewController.swift */,
 				19F8FD132228690000B9A1F9 /* CustomError.swift */,
-				19F8FCF822272D4200B9A1F9 /* ViewController.swift */,
 				19F8FCFA22272D4200B9A1F9 /* Main.storyboard */,
 				19F8FCFD22272D4300B9A1F9 /* Assets.xcassets */,
 				19F8FCFF22272D4300B9A1F9 /* LaunchScreen.storyboard */,
 				19F8FD0222272D4300B9A1F9 /* Info.plist */,
 				19F8FD102227BD0C00B9A1F9 /* Constants */,
+				19F8FD192229BEDD00B9A1F9 /* View */,
 			);
 			path = ForeCast;
 			sourceTree = "<group>";
@@ -89,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				19F8FD0922272D8800B9A1F9 /* Weather.swift */,
+				19F8FD1522288B5700B9A1F9 /* ForeCast.swift */,
 				19F8FD112228552E00B9A1F9 /* City.swift */,
 			);
 			name = Model;
@@ -108,6 +114,14 @@
 				19F8FD0E2227BD0700B9A1F9 /* Constant.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		19F8FD192229BEDD00B9A1F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19F8FD172229BED900B9A1F9 /* GradientView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C07D701AFC7CCB8A0F1A9479 /* Frameworks */ = {
@@ -228,6 +242,8 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ForeCast/Pods-ForeCast-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -235,6 +251,8 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,13 +267,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19F8FCF922272D4200B9A1F9 /* ViewController.swift in Sources */,
+				19F8FD1622288B5700B9A1F9 /* ForeCast.swift in Sources */,
+				19F8FD1B222A461700B9A1F9 /* WeatherViewController.swift in Sources */,
 				19F8FD0A22272D8800B9A1F9 /* Weather.swift in Sources */,
 				19F8FD122228552E00B9A1F9 /* City.swift in Sources */,
 				19F8FD0F2227BD0700B9A1F9 /* Constant.swift in Sources */,
 				19F8FD0D2227BB2700B9A1F9 /* Network.swift in Sources */,
 				19F8FD142228690000B9A1F9 /* CustomError.swift in Sources */,
 				19F8FCF722272D4200B9A1F9 /* AppDelegate.swift in Sources */,
+				19F8FD182229BED900B9A1F9 /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

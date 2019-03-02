@@ -8,15 +8,24 @@
 
 import Foundation
 import Alamofire
+import UIKit
 struct Network {
-    static let shared = Network(baseURLString: Constants.getWeatherURL)
-    private let baseURLString:String
+    static let shared = Network()
     public func getWeather(completion:@escaping (DataResponse<Any>) -> ()) {
-        guard let url = URL(string: "\(self.baseURLString)") else {return}
+        guard let url = URL(string: "\(Constants.getWeatherURL)") else {return}
         Alamofire.request(url,
                           method: .get)
             .responseJSON { response in
                 completion(response)
         }
     }
+    public func getForeCast(completion:@escaping (DataResponse<Any>) -> ()) {
+        guard let url = URL(string: "\(Constants.foreCastURL)") else {return}
+        Alamofire.request(url,
+                          method: .get)
+            .responseJSON { response in
+                completion(response)
+        }
+    }
+    
 }
