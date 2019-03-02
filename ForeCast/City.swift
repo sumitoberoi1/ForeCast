@@ -13,11 +13,8 @@ struct City {
     let lon:Double?
     let name:String?
     let country:String?
-//    init(json:JSON) {
-//        lat = json["coord"]["lat"].double ?? 0.0
-//        lon = json["coord"]["lon"].double ?? 0.0
-//        id = json["id"].int ?? 0
-//        name = json["name"].string ?? ""
-//        country = json["sys"]["country"].string ?? ""
-//    }
+    var id:Int?
+    mutating func addIDToCity(_ id:Int) {
+        self.id = id
+    }
 }

@@ -10,16 +10,48 @@ import Foundation
 import SwiftyJSON
 struct ForeCast {
     var weatherArray:[Weather]
-    init(json:JSON) {
-        weatherArray = []
-        if let jsonArray = json["list"].array {
-            for json in jsonArray {
-               // self.weatherArray.append(Weather(json: json))
+    var sortedWeatherArray:[Weather] {
+        get {
+            var aWeatherArray = weatherArray
+            aWeatherArray.sort(by: { (w1, w2) -> Bool in
+                if let w1date = w1.weatherDate, let w2Date = w2.weatherDate {
+                    return w1date.timeIntervalSince(w2Date) < 0
+                } else {
+                    if w1.weatherDate != nil {
+                        return true
+                    } else {
+                        return false
+                    }
+                }
+            })
+            return aWeatherArray
+        }
+    }
+    
+    var hourlyForeCast:[Weather] {
+        get {
+            return sortedWeatherArray.filter { (w1) -> Bool in
+                guard let weatherDate = w1.weatherDate else {
+                    return false
+                }
+                if let hoursDifference = Calendar.current.dateComponents([.hour], from: weatherDate, to: Date()).hour {
+                    return hoursDifference <= 24
+                }
+                return false
             }
         }
     }
-    static func getForeCast(completion:@escaping (ForeCast?,CustomError?) -> ()) {
-        Network.shared.getForeCast { (response) in
+    
+    init(json:JSON, city:City) {
+        weatherArray = []
+        if let jsonArray = json["list"].array {
+            for json in jsonArray {
+                self.weatherArray.append(Weather(json: json, city: city))
+            }
+        }
+    }
+    static func getForeCastForCity(city:City,completion:@escaping (ForeCast?,CustomError?) -> ()) {
+        Network.shared.getForeCastFor(city) { (response) in
             guard response.result.isSuccess else {
                 completion(nil,CustomError(title: "Something Went wrong",
                                            description: "Request Failed with StatusCode \(response.response?.statusCode ?? 400)", code: response.response?.statusCode ?? 400))
@@ -29,7 +61,7 @@ struct ForeCast {
                 completion(nil,CustomError(title: "Something Went Wrong", description: "Cannot understand recieved Data", code: 400))
                 return
             }
-            completion(ForeCast(json: JSON(responseDict)),nil)
+            completion(ForeCast(json: JSON(responseDict), city: city),nil)
         }
         
     }

@@ -15,9 +15,11 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var snowRainLabel: UILabel!
     @IBOutlet weak var weatherIconImageView: UIImageView!
     let locationUtil = LocationUtil()
+    var foreCast:ForeCast?
     var weather:Weather? {
         didSet {
             refreshUI()
+            getForeCast()
         }
     }
     //MARK: LifeCycle Methods
@@ -38,6 +40,18 @@ class WeatherViewController: UIViewController {
         configSnowRainLabelForWeather(weather)
         guard let url = weather.iconURL else {return}
         weatherIconImageView.kf.setImage(with: url)
+    }
+    
+    func refreshCharts() {
+        
+    }
+    
+    func getForeCast() {
+        guard let weather = self.weather else {return}
+        ForeCast.getForeCastForCity(city: weather.city) { (forecast, error) in
+            print(forecast?.hourlyForeCast)
+             print(forecast?.hourlyForeCast.count)
+        }
     }
     
     func configSnowRainLabelForWeather(_ weather:Weather) {
@@ -68,5 +82,6 @@ extension WeatherViewController:LocationUtilDelegate {
             //TODO: Handle custom error
             self.weather = weather
         }
+        
     }
 }

@@ -19,8 +19,9 @@ struct Network {
                 completion(response)
         }
     }
-    public func getForeCast(completion:@escaping (DataResponse<Any>) -> ()) {
-        guard let url = URL(string: "\(Constants.foreCastURL)") else {return}
+    public func getForeCastFor(_ city:City,completion:@escaping (DataResponse<Any>) -> ()) {
+        guard let id = city.id,
+            let url = URL(string: "\(Constants.foreCastURL)&id=\(id)") else {return}
         Alamofire.request(url,
                           method: .get)
             .responseJSON { response in

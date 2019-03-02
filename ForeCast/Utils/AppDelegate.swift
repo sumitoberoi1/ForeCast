@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import CoreLocation
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let locationManager = CLLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -41,16 +39,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-}
-
-extension AppDelegate:CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let lastLocation =  locations.last else {return}
-        let geoCoder = CLGeocoder()
-        geoCoder.reverseGeocodeLocation(lastLocation) { (placemark, error) in
-            print(placemark)
-        }
-        print(lastLocation.coordinate)
-    }
 }
 
