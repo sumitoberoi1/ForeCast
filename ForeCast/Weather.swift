@@ -25,15 +25,11 @@ struct Weather {
     let city:City
     let sunSetTimeUnix:Double
     let sunRiseTimeUnix:Double
-    let dateText:String?
     var weatherDate:Date? {
-        guard let dateText = dateText else {
-            return nil
+        get {
+            let gmtDate = Date(timeIntervalSince1970: lastCalulatedDateUnix)
+            return gmtDate.toLocalTime()
         }
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone.current
-        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
-        return dateFormatter.date(from:dateText)
     }
     private let iconCode:String
     var iconURL:URL? {
@@ -63,7 +59,6 @@ struct Weather {
         var mutCity = city
         mutCity.addIDToCity(json["id"].int ?? 0)
         self.city = mutCity
-        self.dateText = json["dt_txt"].string
     }
     static func getWeatherForCity(_ city:City,completion:@escaping (Weather?,CustomError?) -> ()) {
         guard let lat = city.lat, let lon = city.lon else {
@@ -82,5 +77,5 @@ struct Weather {
             }
             completion(Weather(json: JSON(responseDict), city: city),nil)
         }
-}
+    }
 }

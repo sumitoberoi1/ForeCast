@@ -14,15 +14,7 @@ struct ForeCast {
         get {
             var aWeatherArray = weatherArray
             aWeatherArray.sort(by: { (w1, w2) -> Bool in
-                if let w1date = w1.weatherDate, let w2Date = w2.weatherDate {
-                    return w1date.timeIntervalSince(w2Date) < 0
-                } else {
-                    if w1.weatherDate != nil {
-                        return true
-                    } else {
-                        return false
-                    }
-                }
+                w1.lastCalulatedDateUnix-w2.lastCalulatedDateUnix < 0
             })
             return aWeatherArray
         }
@@ -31,13 +23,8 @@ struct ForeCast {
     var hourlyForeCast:[Weather] {
         get {
             return sortedWeatherArray.filter { (w1) -> Bool in
-                guard let weatherDate = w1.weatherDate else {
-                    return false
-                }
-                if let hoursDifference = Calendar.current.dateComponents([.hour], from: weatherDate, to: Date()).hour {
-                    return hoursDifference <= 24
-                }
-                return false
+                let hoursDifference = ((w1.lastCalulatedDateUnix - Date().timeIntervalSince1970)/60)/60
+                return hoursDifference <= 24
             }
         }
     }
