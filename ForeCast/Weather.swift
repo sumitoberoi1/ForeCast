@@ -31,7 +31,7 @@ struct Weather {
             return URL(string:"\(Constants.imageIconURL)\(iconCode)\(Constants.imageFormatPNG)")
         }
     }
-    init(json:JSON) {
+    init(json:JSON,city:City) {
         currentTemp = json["main"]["temp"].double ?? 0.0
         let mainJSON = json["main"]
         maxTemp = mainJSON["temp_max"].double ?? 0.0
@@ -50,10 +50,14 @@ struct Weather {
         lastCalulatedDateUnix = json["dt"].double ?? 0.0
         sunSetTimeUnix = json["sys"]["sunset"].double ?? 0.0
         sunRiseTimeUnix = json["sys"]["sunrise"].double ?? 0.0
-        city = City(json: json)
+        self.city = city
     }
-    static func getWeather(completion:@escaping (Weather?,CustomError?) -> ()) {
-        Network.shared.getWeather { (response) in
+    static func getWeatherForCity(_ city:City,completion:@escaping (Weather?,CustomError?) -> ()) {
+        guard let lat = city.lat, let lon = city.lon else {
+            completion(nil,CustomError(title: "Location error", description: "Cannot find Latitude and Longitude", code: 400))
+            return
+        }
+        Network.shared.getWeatherforLatitude(lat, andlongitude: lon) { (response) in
             guard response.result.isSuccess else {
                 completion(nil,CustomError(title: "Something Went wrong",
                                            description: "Request Failed with StatusCode \(response.response?.statusCode ?? 400)", code: response.response?.statusCode ?? 400))
@@ -63,8 +67,7 @@ struct Weather {
                 completion(nil,CustomError(title: "Something Went Wrong", description: "Cannot understand recieved Data", code: 400))
                 return
             }
-            completion(Weather(json: JSON(responseDict)),nil)
+            completion(Weather(json: JSON(responseDict), city: city),nil)
         }
-        
-    }
+}
 }

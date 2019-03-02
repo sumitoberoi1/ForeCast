@@ -14,7 +14,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var weatherConditionLabel: UILabel!
     @IBOutlet weak var snowRainLabel: UILabel!
     @IBOutlet weak var weatherIconImageView: UIImageView!
-    
+    let locationUtil = LocationUtil()
     var weather:Weather? {
         didSet {
             refreshUI()
@@ -23,20 +23,17 @@ class WeatherViewController: UIViewController {
     //MARK: LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationUtil.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        Weather.getWeather { (weather, error) in
-            //TODO: Show Error
-            self.weather = weather
-        }
     }
 
     //MARK: Custom Methods
     func refreshUI() {
         guard let weather = weather else {return}
-        placeLabel.text = "\(weather.city.name), \(weather.city.country)"
+        placeLabel.text = "\(weather.city.name ?? ""), \(weather.city.country ?? "")"
         weatherConditionLabel.text = "\(weather.currentTemp)°F, \(weather.main)"
         configSnowRainLabelForWeather(weather)
         guard let url = weather.iconURL else {return}
@@ -46,13 +43,13 @@ class WeatherViewController: UIViewController {
     func configSnowRainLabelForWeather(_ weather:Weather) {
         var snowRainText:String?
         if let snow = weather.snowLast1Hr {
-            snowRainText = "\(snow) mm"
+            snowRainText = " Snow: \(snow) mm"
         }
         if let rain = weather.rainLast1Hr {
             if let snowText = snowRainText {
                 snowRainText = snowText + ","
             } else {
-                snowRainText = "\(rain) mm"
+                snowRainText = "Rain: \(rain) mm"
             }
         }
         if let snowRainText = snowRainText {
@@ -60,6 +57,16 @@ class WeatherViewController: UIViewController {
             snowRainLabel.text = snowRainText
         } else {
             snowRainLabel.isHidden = true
+        }
+    }
+}
+
+
+extension WeatherViewController:LocationUtilDelegate {
+    func locationUpdatedForUtil(_ util: LocationUtil, withCity city: City) {
+        Weather.getWeatherForCity(city) { (weather, customError) in
+            //TODO: Handle custom error
+            self.weather = weather
         }
     }
 }

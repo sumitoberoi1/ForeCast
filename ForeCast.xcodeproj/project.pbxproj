@@ -19,6 +19,7 @@
 		19F8FD1622288B5700B9A1F9 /* ForeCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD1522288B5700B9A1F9 /* ForeCast.swift */; };
 		19F8FD182229BED900B9A1F9 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD172229BED900B9A1F9 /* GradientView.swift */; };
 		19F8FD1B222A461700B9A1F9 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD1A222A461700B9A1F9 /* WeatherViewController.swift */; };
+		19F8FD1D222A676200B9A1F9 /* LocationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD1C222A676200B9A1F9 /* LocationUtil.swift */; };
 		7CD3C91B356B9D225D8434E5 /* Pods_ForeCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C1A3EC5E1F8F2B023B1528 /* Pods_ForeCast.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		19F8FD1522288B5700B9A1F9 /* ForeCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCast.swift; sourceTree = "<group>"; };
 		19F8FD172229BED900B9A1F9 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		19F8FD1A222A461700B9A1F9 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		19F8FD1C222A676200B9A1F9 /* LocationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUtil.swift; sourceTree = "<group>"; };
 		61A6ADC6E435A95BA6BF9DFE /* Pods-ForeCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForeCast.debug.xcconfig"; path = "Target Support Files/Pods-ForeCast/Pods-ForeCast.debug.xcconfig"; sourceTree = "<group>"; };
 		71E1A784F8B58AF4C2B1C7C6 /* Pods-ForeCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForeCast.release.xcconfig"; path = "Target Support Files/Pods-ForeCast/Pods-ForeCast.release.xcconfig"; sourceTree = "<group>"; };
 		99C1A3EC5E1F8F2B023B1528 /* Pods_ForeCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForeCast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,17 +77,12 @@
 		19F8FCF522272D4200B9A1F9 /* ForeCast */ = {
 			isa = PBXGroup;
 			children = (
+				19F8FD0222272D4300B9A1F9 /* Info.plist */,
 				19F8FD0B2227BB1600B9A1F9 /* Network */,
 				19F8FD0822272D5200B9A1F9 /* Model */,
-				19F8FCF622272D4200B9A1F9 /* AppDelegate.swift */,
-				19F8FD1A222A461700B9A1F9 /* WeatherViewController.swift */,
-				19F8FD132228690000B9A1F9 /* CustomError.swift */,
-				19F8FCFA22272D4200B9A1F9 /* Main.storyboard */,
-				19F8FCFD22272D4300B9A1F9 /* Assets.xcassets */,
-				19F8FCFF22272D4300B9A1F9 /* LaunchScreen.storyboard */,
-				19F8FD0222272D4300B9A1F9 /* Info.plist */,
-				19F8FD102227BD0C00B9A1F9 /* Constants */,
-				19F8FD192229BEDD00B9A1F9 /* View */,
+				19F8FD1F222A679E00B9A1F9 /* Controller */,
+				19F8FD1E222A677400B9A1F9 /* Utils */,
+				19F8FD192229BEDD00B9A1F9 /* Views */,
 			);
 			path = ForeCast;
 			sourceTree = "<group>";
@@ -116,12 +113,34 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		19F8FD192229BEDD00B9A1F9 /* View */ = {
+		19F8FD192229BEDD00B9A1F9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				19F8FCFA22272D4200B9A1F9 /* Main.storyboard */,
+				19F8FCFF22272D4300B9A1F9 /* LaunchScreen.storyboard */,
 				19F8FD172229BED900B9A1F9 /* GradientView.swift */,
 			);
-			path = View;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		19F8FD1E222A677400B9A1F9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				19F8FCF622272D4200B9A1F9 /* AppDelegate.swift */,
+				19F8FCFD22272D4300B9A1F9 /* Assets.xcassets */,
+				19F8FD102227BD0C00B9A1F9 /* Constants */,
+				19F8FD1C222A676200B9A1F9 /* LocationUtil.swift */,
+				19F8FD132228690000B9A1F9 /* CustomError.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		19F8FD1F222A679E00B9A1F9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				19F8FD1A222A461700B9A1F9 /* WeatherViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		C07D701AFC7CCB8A0F1A9479 /* Frameworks */ = {
@@ -269,6 +288,7 @@
 			files = (
 				19F8FD1622288B5700B9A1F9 /* ForeCast.swift in Sources */,
 				19F8FD1B222A461700B9A1F9 /* WeatherViewController.swift in Sources */,
+				19F8FD1D222A676200B9A1F9 /* LocationUtil.swift in Sources */,
 				19F8FD0A22272D8800B9A1F9 /* Weather.swift in Sources */,
 				19F8FD122228552E00B9A1F9 /* City.swift in Sources */,
 				19F8FD0F2227BD0700B9A1F9 /* Constant.swift in Sources */,

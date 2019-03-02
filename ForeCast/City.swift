@@ -9,16 +9,15 @@
 import Foundation
 import SwiftyJSON
 struct City {
-    let lat:Double
-    let lon:Double
-    let id:Int
-    let name:String
-    let country:String
-    init(json:JSON) {
-        lat = json["coord"]["lat"].double ?? 0.0
-        lon = json["coord"]["lon"].double ?? 0.0
-        id = json["id"].int ?? 0
-        name = json["name"].string ?? ""
-        country = json["sys"]["country"].string ?? ""
-    }
+    let lat:Double?
+    let lon:Double?
+    let name:String?
+    let country:String?
+//    init(json:JSON) {
+//        lat = json["coord"]["lat"].double ?? 0.0
+//        lon = json["coord"]["lon"].double ?? 0.0
+//        id = json["id"].int ?? 0
+//        name = json["name"].string ?? ""
+//        country = json["sys"]["country"].string ?? ""
+//    }
 }

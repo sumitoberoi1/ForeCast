@@ -11,8 +11,8 @@ import Alamofire
 import UIKit
 struct Network {
     static let shared = Network()
-    public func getWeather(completion:@escaping (DataResponse<Any>) -> ()) {
-        guard let url = URL(string: "\(Constants.getWeatherURL)") else {return}
+    public func getWeatherforLatitude(_ lat:Double,andlongitude lon:Double,completion:@escaping (DataResponse<Any>) -> ()) {
+        guard let url = URL(string: "\(Constants.getWeatherURL)&lat=\(lat)&lon=\(lon)") else {return}
         Alamofire.request(url,
                           method: .get)
             .responseJSON { response in

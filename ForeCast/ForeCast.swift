@@ -14,7 +14,7 @@ struct ForeCast {
         weatherArray = []
         if let jsonArray = json["list"].array {
             for json in jsonArray {
-                self.weatherArray.append(Weather(json: json))
+               // self.weatherArray.append(Weather(json: json))
             }
         }
     }
