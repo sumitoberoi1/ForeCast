@@ -25,6 +25,7 @@ struct Weather {
     let city:City
     let sunSetTimeUnix:Double
     let sunRiseTimeUnix:Double
+    let visiblity:Double
     var weatherDate:Date? {
         get {
             let gmtDate = Date(timeIntervalSince1970: lastCalulatedDateUnix)
@@ -56,6 +57,7 @@ struct Weather {
         lastCalulatedDateUnix = json["dt"].double ?? 0.0
         sunSetTimeUnix = json["sys"]["sunset"].double ?? 0.0
         sunRiseTimeUnix = json["sys"]["sunrise"].double ?? 0.0
+        visiblity = json["visibility"].double ?? 0.0
         var mutCity = city
         mutCity.addIDToCity(json["id"].int ?? 0)
         self.city = mutCity
