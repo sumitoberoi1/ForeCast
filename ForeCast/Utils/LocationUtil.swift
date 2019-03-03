@@ -8,6 +8,9 @@
 
 import Foundation
 import CoreLocation
+import SCLAlertView
+import SkeletonView
+
 protocol LocationUtilDelegate {
     func locationUpdatedForUtil(_ util:LocationUtil, withCity city: City)
 }
@@ -35,9 +38,10 @@ extension LocationUtil:CLLocationManagerDelegate {
             if let placemarks = placemarks, placemarks.count > 0, let placemark = placemarks.first {
                 let city = City(lat: placemark.location?.coordinate.latitude, lon: placemark.location?.coordinate.longitude, name:"\(placemark.name ?? ""), \(placemark.locality ?? "")", country: placemark.country, id: nil)
                 self.delegate?.locationUpdatedForUtil(self, withCity: city)
+            } else {
+                SCLAlertView().showError("Location Error", subTitle: "Cannot Get Latitude and Longitude")
             }
         }
-        print(lastLocation.coordinate)
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
@@ -45,6 +49,8 @@ extension LocationUtil:CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status != .authorizedWhenInUse {
             locationManager.stopMonitoringSignificantLocationChanges()
+        } else if status == .denied || status == .restricted || status == .notDetermined{
+            SCLAlertView().showError("Location Error", subTitle: "Cannot Get Location")
         }
     }
 

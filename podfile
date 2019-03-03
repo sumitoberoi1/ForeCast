@@ -6,4 +6,6 @@ target 'ForeCast' do
  pod 'SwiftyJSON'
  pod 'Charts'
  pod 'Kingfisher'
+ pod 'SCLAlertView'
+ pod 'SkeletonView'
 end

@@ -9,14 +9,14 @@
 import UIKit
 import Kingfisher
 import Charts
-
+import SCLAlertView
+import SkeletonView
 class WeatherViewController: UIViewController {
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var weatherConditionLabel: UILabel!
     @IBOutlet weak var snowRainLabel: UILabel!
     @IBOutlet weak var weatherIconImageView: UIImageView!
     @IBOutlet weak var hourlyBarView: BarChartView!
-    
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var pressureLabel: UILabel!
     @IBOutlet weak var tempRangeLabel: UILabel!
@@ -26,7 +26,11 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var sunriseLabel: UILabel!
     @IBOutlet weak var sunsetLabel: UILabel!
     
+    @IBOutlet weak var moreInfoStackView: UIStackView!
+    var animatedViews = [UIView]()
     let locationUtil = LocationUtil()
+    
+    public typealias SkeletonLayerAnimation = (CALayer) -> CAAnimation
     var foreCast:ForeCast? {
         didSet {
             setHourlyChartForForecast()
@@ -43,6 +47,8 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         locationUtil.delegate = self
         configChart()
+        animatedViews = [placeLabel,weatherConditionLabel,snowRainLabel,moreInfoStackView,hourlyBarView]
+        self.showSkeleton()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,10 +84,24 @@ class WeatherViewController: UIViewController {
         sunsetLabel.text = "\(Date(timeIntervalSince1970:weather.sunSetTimeUnix).getHoursMinFormat())"
     }
     
+    func showSkeleton() {
+        let color = UIColor.midnightBlue
+        let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .leftRight)
+        animatedViews.forEach {$0.showAnimatedGradientSkeleton(usingGradient: SkeletonGradient(baseColor: color), animation: animation)}
+    }
+    
+    func hideSkelton() {
+        animatedViews.forEach{$0.hideSkeleton()}
+    }
+    
     func getForeCast() {
         guard let weather = self.weather else {return}
         ForeCast.getForeCastForCity(city: weather.city) { (f1, error) in
-            self.foreCast = f1
+            if let customError = error {
+                SCLAlertView().showError("\(customError.title ?? "")", subTitle: customError.errorDescription ?? "" + "in getting forecast")
+            } else {
+                self.foreCast = f1
+            }
         }
     }
     
@@ -129,8 +149,12 @@ class WeatherViewController: UIViewController {
 extension WeatherViewController:LocationUtilDelegate {
     func locationUpdatedForUtil(_ util: LocationUtil, withCity city: City) {
         Weather.getWeatherForCity(city) { (weather, customError) in
-            //TODO: Handle custom error
-            self.weather = weather
+            self.hideSkelton()
+            if let customError = customError {
+                SCLAlertView().showError("\(customError.title ?? "")", subTitle: customError.errorDescription ?? "")
+            } else {
+                self.weather = weather
+            }
         }
         
     }

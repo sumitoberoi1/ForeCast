@@ -468,6 +468,9 @@
                                                     <constraint firstItem="tWh-rZ-sfz" firstAttribute="height" secondItem="fcD-Ih-puY" secondAttribute="height" id="RPV-1k-vHl"/>
                                                     <constraint firstItem="Krk-tm-SNb" firstAttribute="width" secondItem="fcD-Ih-puY" secondAttribute="width" id="f2S-Dg-eFv"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -515,12 +518,18 @@
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather Condtion" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSH-55-rYI">
                                                 <rect key="frame" x="0.0" y="32" width="156.5" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snow/Rain" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Raj-Sm-6AJ">
                                                 <rect key="frame" x="0.0" y="53.5" width="75" height="0.0"/>
@@ -553,6 +562,7 @@
                         <outlet property="cloudinessLabel" destination="dPQ-5m-9Fs" id="KxG-3U-Iry"/>
                         <outlet property="hourlyBarView" destination="2Ye-r0-b9t" id="nIG-06-exT"/>
                         <outlet property="humidityLabel" destination="usr-aq-WV7" id="T1X-MJ-5jB"/>
+                        <outlet property="moreInfoStackView" destination="EZc-AR-J8t" id="Bxo-bo-JTc"/>
                         <outlet property="placeLabel" destination="bmW-iU-2Bl" id="IuY-6s-oWh"/>
                         <outlet property="pressureLabel" destination="zCl-jf-4ko" id="CB1-Sv-5xv"/>
                         <outlet property="snowRainLabel" destination="Raj-Sm-6AJ" id="CJU-S8-3dR"/>

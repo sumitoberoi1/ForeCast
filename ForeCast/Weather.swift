@@ -77,7 +77,19 @@ struct Weather {
                 completion(nil,CustomError(title: "Something Went Wrong", description: "Cannot understand recieved Data", code: 400))
                 return
             }
-            completion(Weather(json: JSON(responseDict), city: city),nil)
+            if let statusCode = response.response?.statusCode {
+                if (statusCode >= 200 && statusCode <= 300) {
+                    completion(Weather(json: JSON(responseDict), city: city),nil)
+                } else {
+                    completion(nil,CustomError(title: "Something Went Wrong", description: "Status Code: \(statusCode)", code: statusCode))
+                    return
+                }
+                
+            } else {
+                completion(nil,CustomError(title: "Something Went Wrong", description: "Cannot understand recieved Data", code: 400))
+                return
+            }
+            
         }
     }
 }
