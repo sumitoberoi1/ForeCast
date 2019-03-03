@@ -35,7 +35,7 @@ To improve upon the app following things can be done. I wasn’t able to do that
 2. Not pushing pods directory to GitHub
 3. Better handling of string literal
 4. Better UI
-5. Better UI when the user doesn’t feed in location
+5. Better UI when the user doesn’t authorize location
 6. Improving Location Manage
 7. Storing previously used location and data wrt it in CoreData or realm
 8. Push Notifications using express servers
