@@ -13,6 +13,7 @@ import SkeletonView
 
 protocol LocationUtilDelegate {
     func locationUpdatedForUtil(_ util:LocationUtil, withCity city: City)
+    func locationFailedToUpdateForUtil(_ util:LocationUtil)
 }
 class LocationUtil:NSObject {
     let locationManager = CLLocationManager()
@@ -44,7 +45,8 @@ extension LocationUtil:CLLocationManagerDelegate {
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        
+        delegate?.locationFailedToUpdateForUtil(self)
+        SCLAlertView().showError("Location Error", subTitle: "Cannot Get Location")
     }
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status != .authorizedWhenInUse {

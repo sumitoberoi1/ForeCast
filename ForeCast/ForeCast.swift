@@ -28,6 +28,21 @@ struct ForeCast {
             }
         }
     }
+    var dailyForeCast:[Weather] {
+        get {
+            return sortedWeatherArray.reduce([], { (result, weather) in
+                if (result.contains(where: { (w1) -> Bool in
+                    return Date(timeIntervalSince1970: weather.lastCalulatedDateUnix).getDate() == Date(timeIntervalSince1970: w1.lastCalulatedDateUnix).getDate()
+                })) {
+                    return result
+                } else {
+                    var temp = result
+                    temp.append(weather)
+                    return temp
+                }
+            })
+        }
+    }
     
     init(json:JSON, city:City) {
         weatherArray = []

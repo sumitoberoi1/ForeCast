@@ -25,6 +25,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var cloudinessLabel: UILabel!
     @IBOutlet weak var sunriseLabel: UILabel!
     @IBOutlet weak var sunsetLabel: UILabel!
+    @IBOutlet weak var dailyForeCast: BarChartView!
     
     @IBOutlet weak var moreInfoStackView: UIStackView!
     var animatedViews = [UIView]()
@@ -33,7 +34,8 @@ class WeatherViewController: UIViewController {
     public typealias SkeletonLayerAnimation = (CALayer) -> CAAnimation
     var foreCast:ForeCast? {
         didSet {
-            setHourlyChartForForecast()
+            setHourlyForeCast()
+            setDailyForeCast()
         }
     }
     var weather:Weather? {
@@ -46,8 +48,9 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationUtil.delegate = self
-        configChart()
-        animatedViews = [placeLabel,weatherConditionLabel,snowRainLabel,moreInfoStackView,hourlyBarView]
+        configChart(hourlyBarView)
+        configChart(dailyForeCast)
+        animatedViews = [placeLabel,weatherConditionLabel,snowRainLabel,moreInfoStackView,hourlyBarView,dailyForeCast]
         self.showSkeleton()
     }
     
@@ -57,10 +60,10 @@ class WeatherViewController: UIViewController {
 
     //MARK: Custom Methods
     
-    func configChart() {
-        hourlyBarView.noDataTextColor = UIColor.white
-        hourlyBarView.noDataText = "No Hourly prediction available"
-        hourlyBarView.tintColor = UIColor.white
+    func configChart(_ chartView:BarChartView) {
+        chartView.noDataTextColor = UIColor.white
+        chartView.noDataText = "No Hourly prediction available"
+        chartView.tintColor = UIColor.white
     }
     
     func refreshUI() {
@@ -105,9 +108,8 @@ class WeatherViewController: UIViewController {
         }
     }
     
-    func setHourlyChartForForecast() {
-        guard let foreCast = foreCast else {return}
-        let barChartDataEntries = foreCast.hourlyForeCast.enumerated().map { (arg) -> BarChartDataEntry in
+    func setChartWithView(_ view:BarChartView, data:[Weather], xAxisData:[String]) {
+        let barChartDataEntries = data.enumerated().map { (arg) -> BarChartDataEntry in
             let (i, weather) = arg
             return BarChartDataEntry(x: Double(i), y: weather.currentTemp)
         }
@@ -116,12 +118,27 @@ class WeatherViewController: UIViewController {
         chartData.addDataSet(chartDataSet)
         chartData.setDrawValues(false)
         chartDataSet.setColor(#colorLiteral(red: 0.9333333333, green: 0.6196078431, blue: 0.4352941176, alpha: 1))
+        view.xAxis.valueFormatter = IndexAxisValueFormatter(values:xAxisData)
+        view.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        view.data = chartData
+    }
+    
+    func setHourlyForeCast() {
+        guard let foreCast = foreCast else {return}
         let hoursData = foreCast.hourlyForeCast.map { (weather) -> String in
             return Date(timeIntervalSince1970: weather.lastCalulatedDateUnix).getHoursOnlyFormat()
         }
-        hourlyBarView.xAxis.valueFormatter = IndexAxisValueFormatter(values:hoursData)
-        hourlyBarView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        hourlyBarView.data = chartData
+        setChartWithView(hourlyBarView, data: foreCast.hourlyForeCast, xAxisData: hoursData)
+        
+    }
+    
+    
+    func setDailyForeCast() {
+        guard let foreCast = foreCast else {return}
+        let dailyData = foreCast.dailyForeCast.map { (weather) -> String in
+            return Date(timeIntervalSince1970: weather.lastCalulatedDateUnix).getDateOnlyFormat()
+        }
+        setChartWithView(dailyForeCast, data: foreCast.dailyForeCast, xAxisData: dailyData)
     }
     
     func configSnowRainLabelForWeather(_ weather:Weather) {
@@ -147,6 +164,10 @@ class WeatherViewController: UIViewController {
 
 
 extension WeatherViewController:LocationUtilDelegate {
+    func locationFailedToUpdateForUtil(_ util: LocationUtil) {
+        hideSkelton()
+    }
+    
     func locationUpdatedForUtil(_ util: LocationUtil, withCity city: City) {
         Weather.getWeatherForCity(city) { (weather, customError) in
             self.hideSkelton()
@@ -158,4 +179,5 @@ extension WeatherViewController:LocationUtilDelegate {
         }
         
     }
+    
 }

@@ -18,6 +18,8 @@ I am also showing data such as Humidity, Pressure, Max-Min temperature, Visibili
 
 I wasn’t able to work on push notification part as I was thinking of building express server which will subscribe to alerts on this API http://api.openweathermap.org/data/3.0/triggers and using https://www.npmjs.com/package/apn. I will be able to push notification from my server to the device. But I didn’t have paid developer account so I was not able to work on that part
 
+
+Presently, I am pushing pod directories to github which is not the ideal way but for ease of testing I am doing this
 For testing ‘
 1. clone the project
 2. Open Forecast.xcworkspace
@@ -42,3 +44,4 @@ To improve upon the app following things can be done. I wasn’t able to do that
 10. Code Modularity and better use of design patterns
 11. Making request again on failure
 12. Proper configuring String literals and other constants file
+13. Adding gitignore file

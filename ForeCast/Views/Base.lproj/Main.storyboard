@@ -69,14 +69,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="ForeCast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vQc-ye-LTR">
-                                <rect key="frame" x="0.0" y="111" width="375" height="556"/>
+                                <rect key="frame" x="0.0" y="111" width="375" height="1556"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHq-R3-oyP" customClass="GradientView" customModule="ForeCast" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="958"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1383.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next 24 Hours Prediction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JlD-Up-Z8b">
                                                 <rect key="frame" x="16" y="16" width="197" height="20.5"/>
@@ -472,22 +472,48 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shq-ml-V1O" customClass="BarChartView" customModule="Charts">
+                                                <rect key="frame" x="16" y="1000.5" width="343" height="343"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="shq-ml-V1O" secondAttribute="height" multiplier="1:1" id="dcr-X0-als"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next 5 days prediction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88D-wI-4ZT">
+                                                <rect key="frame" x="16" y="964" width="176" height="20.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20.5" id="d1n-9I-xIp"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="EZc-AR-J8t" firstAttribute="leading" secondItem="2Ye-r0-b9t" secondAttribute="leading" id="4wy-hg-qTy"/>
+                                            <constraint firstItem="shq-ml-V1O" firstAttribute="width" secondItem="shq-ml-V1O" secondAttribute="height" multiplier="1:1" id="7wE-pw-4bd"/>
+                                            <constraint firstItem="88D-wI-4ZT" firstAttribute="leading" secondItem="JlD-Up-Z8b" secondAttribute="leading" id="BPp-Cr-Dkk"/>
                                             <constraint firstItem="4XO-ot-2iX" firstAttribute="top" secondItem="2Ye-r0-b9t" secondAttribute="bottom" constant="16" id="BTl-ZK-OxU"/>
+                                            <constraint firstItem="shq-ml-V1O" firstAttribute="leading" secondItem="2Ye-r0-b9t" secondAttribute="leading" id="EpM-HK-hE1"/>
                                             <constraint firstItem="JlD-Up-Z8b" firstAttribute="top" secondItem="sHq-R3-oyP" secondAttribute="top" constant="16" id="FWQ-HA-VqE"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="88D-wI-4ZT" secondAttribute="trailing" constant="10" id="G0K-XD-Z9r"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JlD-Up-Z8b" secondAttribute="trailing" constant="16" id="Jyj-CK-m2P"/>
                                             <constraint firstItem="EZc-AR-J8t" firstAttribute="trailing" secondItem="2Ye-r0-b9t" secondAttribute="trailing" id="K9V-cH-dMK"/>
                                             <constraint firstItem="4XO-ot-2iX" firstAttribute="leading" secondItem="2Ye-r0-b9t" secondAttribute="leading" id="Kjv-wh-gSo"/>
                                             <constraint firstAttribute="trailing" secondItem="2Ye-r0-b9t" secondAttribute="trailing" constant="16" id="Mf5-fV-dgo"/>
                                             <constraint firstItem="EZc-AR-J8t" firstAttribute="top" secondItem="4XO-ot-2iX" secondAttribute="bottom" constant="16" id="RXU-Ps-n63"/>
+                                            <constraint firstAttribute="bottom" secondItem="shq-ml-V1O" secondAttribute="bottom" constant="40" id="Rgq-Sn-2Zi"/>
+                                            <constraint firstItem="shq-ml-V1O" firstAttribute="trailing" secondItem="2Ye-r0-b9t" secondAttribute="trailing" id="Utp-rN-Bmk"/>
                                             <constraint firstItem="2Ye-r0-b9t" firstAttribute="top" secondItem="JlD-Up-Z8b" secondAttribute="bottom" constant="16" id="dCb-oy-hpE"/>
                                             <constraint firstItem="2Ye-r0-b9t" firstAttribute="leading" secondItem="JlD-Up-Z8b" secondAttribute="leading" id="ddA-az-Yca"/>
                                             <constraint firstItem="JlD-Up-Z8b" firstAttribute="leading" secondItem="sHq-R3-oyP" secondAttribute="leading" constant="16" id="gTO-mv-uOf"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4XO-ot-2iX" secondAttribute="trailing" constant="20" symbolic="YES" id="qGe-gH-sDB"/>
-                                            <constraint firstAttribute="bottom" secondItem="EZc-AR-J8t" secondAttribute="bottom" constant="10" id="wqc-MJ-LeW"/>
+                                            <constraint firstItem="shq-ml-V1O" firstAttribute="top" secondItem="88D-wI-4ZT" secondAttribute="bottom" constant="16" id="rfS-9w-2va"/>
+                                            <constraint firstItem="88D-wI-4ZT" firstAttribute="top" secondItem="EZc-AR-J8t" secondAttribute="bottom" constant="16" id="wCx-0c-5nE"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
@@ -557,9 +583,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <size key="freeformSize" width="375" height="667"/>
+                    <size key="freeformSize" width="375" height="1667"/>
                     <connections>
                         <outlet property="cloudinessLabel" destination="dPQ-5m-9Fs" id="KxG-3U-Iry"/>
+                        <outlet property="dailyForeCast" destination="shq-ml-V1O" id="pjI-Gr-366"/>
                         <outlet property="hourlyBarView" destination="2Ye-r0-b9t" id="nIG-06-exT"/>
                         <outlet property="humidityLabel" destination="usr-aq-WV7" id="T1X-MJ-5jB"/>
                         <outlet property="moreInfoStackView" destination="EZc-AR-J8t" id="Bxo-bo-JTc"/>

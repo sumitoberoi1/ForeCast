@@ -39,4 +39,15 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func getDateOnlyFormat() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM"
+        dateFormatter.timeZone = TimeZone.current
+        return dateFormatter.string(from: self)
+    }
+    
+    func getDate() -> Int{
+        return Calendar.current.component(.day, from: self)
+    }
+    
 }
