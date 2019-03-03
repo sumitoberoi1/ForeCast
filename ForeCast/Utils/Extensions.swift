@@ -24,4 +24,18 @@ extension Date {
         return Date(timeInterval: seconds, since: self)
     }
     
+    func getHoursMinFormat() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "H:mm a"
+        dateFormatter.timeZone = TimeZone.current
+        return dateFormatter.string(from: self)
+    }
+    
+    func getHoursOnlyFormat() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "H a"
+        dateFormatter.timeZone = TimeZone.current
+        return dateFormatter.string(from: self)
+    }
+    
 }

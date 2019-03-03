@@ -22,6 +22,8 @@
 		19F8FD1D222A676200B9A1F9 /* LocationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD1C222A676200B9A1F9 /* LocationUtil.swift */; };
 		19F8FD21222AB0A300B9A1F9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD20222AB0A300B9A1F9 /* Extensions.swift */; };
 		19F8FD23222B1C4000B9A1F9 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD22222B1C4000B9A1F9 /* BorderView.swift */; };
+		19F8FD25222B555200B9A1F9 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD24222B555200B9A1F9 /* SplashVC.swift */; };
+		19F8FD27222B55D500B9A1F9 /* Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8FD26222B55D500B9A1F9 /* Fade.swift */; };
 		7CD3C91B356B9D225D8434E5 /* Pods_ForeCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C1A3EC5E1F8F2B023B1528 /* Pods_ForeCast.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		19F8FD1C222A676200B9A1F9 /* LocationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUtil.swift; sourceTree = "<group>"; };
 		19F8FD20222AB0A300B9A1F9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		19F8FD22222B1C4000B9A1F9 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
+		19F8FD24222B555200B9A1F9 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		19F8FD26222B55D500B9A1F9 /* Fade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fade.swift; sourceTree = "<group>"; };
 		61A6ADC6E435A95BA6BF9DFE /* Pods-ForeCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForeCast.debug.xcconfig"; path = "Target Support Files/Pods-ForeCast/Pods-ForeCast.debug.xcconfig"; sourceTree = "<group>"; };
 		71E1A784F8B58AF4C2B1C7C6 /* Pods-ForeCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForeCast.release.xcconfig"; path = "Target Support Files/Pods-ForeCast/Pods-ForeCast.release.xcconfig"; sourceTree = "<group>"; };
 		99C1A3EC5E1F8F2B023B1528 /* Pods_ForeCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForeCast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				19F8FCF622272D4200B9A1F9 /* AppDelegate.swift */,
+				19F8FD26222B55D500B9A1F9 /* Fade.swift */,
 				19F8FCFD22272D4300B9A1F9 /* Assets.xcassets */,
 				19F8FD102227BD0C00B9A1F9 /* Constants */,
 				19F8FD1C222A676200B9A1F9 /* LocationUtil.swift */,
@@ -145,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				19F8FD1A222A461700B9A1F9 /* WeatherViewController.swift */,
+				19F8FD24222B555200B9A1F9 /* SplashVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -300,10 +306,12 @@
 				19F8FD122228552E00B9A1F9 /* City.swift in Sources */,
 				19F8FD0F2227BD0700B9A1F9 /* Constant.swift in Sources */,
 				19F8FD0D2227BB2700B9A1F9 /* Network.swift in Sources */,
+				19F8FD25222B555200B9A1F9 /* SplashVC.swift in Sources */,
 				19F8FD142228690000B9A1F9 /* CustomError.swift in Sources */,
 				19F8FCF722272D4200B9A1F9 /* AppDelegate.swift in Sources */,
 				19F8FD21222AB0A300B9A1F9 /* Extensions.swift in Sources */,
 				19F8FD182229BED900B9A1F9 /* GradientView.swift in Sources */,
+				19F8FD27222B55D500B9A1F9 /* Fade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

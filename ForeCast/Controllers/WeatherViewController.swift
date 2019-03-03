@@ -74,8 +74,8 @@ class WeatherViewController: UIViewController {
         visiblityLabel.text = "\(visiblityLabel.text ?? "") \(weather.visiblity)metre"
         swindSpeedLabel.text = "\(swindSpeedLabel.text ?? "") \(weather.windSpeed)miles/hr"
         cloudinessLabel.text = "\(cloudinessLabel.text ?? "") \(weather.cloudiness)%"
-        sunriseLabel.text = "\(Date(timeIntervalSince1970:weather.sunRiseTimeUnix).toLocalTime())"
-        sunsetLabel.text = "\(Date(timeIntervalSince1970:weather.sunSetTimeUnix).toLocalTime())"
+        sunriseLabel.text = "\(Date(timeIntervalSince1970:weather.sunRiseTimeUnix).getHoursMinFormat())"
+        sunsetLabel.text = "\(Date(timeIntervalSince1970:weather.sunSetTimeUnix).getHoursMinFormat())"
     }
     
     func getForeCast() {
@@ -97,14 +97,7 @@ class WeatherViewController: UIViewController {
         chartData.setDrawValues(false)
         chartDataSet.setColor(#colorLiteral(red: 0.9333333333, green: 0.6196078431, blue: 0.4352941176, alpha: 1))
         let hoursData = foreCast.hourlyForeCast.map { (weather) -> String in
-            if let weatherDate = weather.weatherDate {
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "H a"
-                dateFormatter.timeZone = TimeZone.current
-                return dateFormatter.string(from: weatherDate)
-            } else {
-                return ""
-            }
+            return Date(timeIntervalSince1970: weather.lastCalulatedDateUnix).getHoursOnlyFormat()
         }
         hourlyBarView.xAxis.valueFormatter = IndexAxisValueFormatter(values:hoursData)
         hourlyBarView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
