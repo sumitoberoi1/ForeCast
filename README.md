@@ -36,7 +36,7 @@ To improve upon the app following things can be done. I wasn’t able to do that
 3. Better handling of string literal
 4. Better UI
 5. Better UI when the user doesn’t authorize location
-6. Improving Location Manage
+6. Improving Location Manager
 7. Storing previously used location and data wrt it in CoreData or realm
 8. Push Notifications using express servers
 9. Unit Testing app
