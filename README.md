@@ -49,4 +49,5 @@ To improve upon the app following things can be done. I wasn’t able to do that
 12. Proper configuring String literals and other constants file
 13. Adding gitignore file
 14. Better utilization of Forecast
+15. Saving Last Location for better user experience
 
