@@ -26,6 +26,7 @@ For testing
 5. For best result please test app on an actual device
 6. For testing on the device. Use these techniques: https://www.twilio.com/blog/2018/07/how-to-test-your-ios-application-on-a-real-device.html
 7. If you are using Simulator to test the app. For faking location use this: https://willowtreeapps.com/ideas/simulating-location-in-ios
+8. App won't show any data if you don't authorize for location
 
 
 To improve upon the app following things can be done. I wasn’t able to do that because of lack of time:
