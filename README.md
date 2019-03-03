@@ -43,3 +43,4 @@ To improve upon the app following things can be done. I wasn’t able to do that
 10. Code Modularity and better use of design patterns
 11. Making request again on failure
 12. Proper configuring String literals and other constants file
+13. Better utilization of Forecast
