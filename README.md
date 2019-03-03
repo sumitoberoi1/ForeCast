@@ -18,16 +18,22 @@ I am also showing data such as Humidity, Pressure, Max-Min temperature, Visibili
 
 I wasn’t able to work on push notification part as I was thinking of building express server which will subscribe to alerts on this API http://api.openweathermap.org/data/3.0/triggers and using https://www.npmjs.com/package/apn. I will be able to push notification from my server to the device. But I didn’t have paid developer account so I was not able to work on that part
 
+<<<<<<< HEAD
 
 Presently, I am pushing pod directories to github which is not the ideal way but for ease of testing I am doing this
 For testing ‘
 1. clone the project
+=======
+For testing 
+1. Clone the project
+>>>>>>> fdcd2175f5afcf07e47c38e71ba4604b2ace5d3e
 2. Open Forecast.xcworkspace
 3. Add your API key in Constants. Swift file Line 13
 4. If you are not able to compile the project run ‘pod install’ from the terminal 
 5. For best result please test app on an actual device
 6. For testing on the device. Use these techniques: https://www.twilio.com/blog/2018/07/how-to-test-your-ios-application-on-a-real-device.html
 7. If you are using Simulator to test the app. For faking location use this: https://willowtreeapps.com/ideas/simulating-location-in-ios
+8. App won't show any data if you don't authorize for location
 
 
 To improve upon the app following things can be done. I wasn’t able to do that because of lack of time:
@@ -36,8 +42,8 @@ To improve upon the app following things can be done. I wasn’t able to do that
 2. Not pushing pods directory to GitHub
 3. Better handling of string literal
 4. Better UI
-5. Better UI when the user doesn’t feed in location
-6. Improving Location Manage
+5. Better UI when the user doesn’t authorize location
+6. Improving Location Manager
 7. Storing previously used location and data wrt it in CoreData or realm
 8. Push Notifications using express servers
 9. Unit Testing app
@@ -45,3 +51,5 @@ To improve upon the app following things can be done. I wasn’t able to do that
 11. Making request again on failure
 12. Proper configuring String literals and other constants file
 13. Adding gitignore file
+14. Better utilization of Forecast
+
