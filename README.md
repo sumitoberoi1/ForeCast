@@ -18,8 +18,8 @@ I am also showing data such as Humidity, Pressure, Max-Min temperature, Visibili
 
 I wasn’t able to work on push notification part as I was thinking of building express server which will subscribe to alerts on this API http://api.openweathermap.org/data/3.0/triggers and using https://www.npmjs.com/package/apn. I will be able to push notification from my server to the device. But I didn’t have paid developer account so I was not able to work on that part
 
-For testing ‘
-1. clone the project
+For testing 
+1. Clone the project
 2. Open Forecast.xcworkspace
 3. Add your API key in Constants. Swift file Line 13
 4. If you are not able to compile the project run ‘pod install’ from the terminal 
